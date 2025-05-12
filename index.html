@@ -1,0 +1,211 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Baish's Cake</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cookie&family=Poppins:wght@400;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <header>
+    <h1>Baish's Cake</h1>
+    <p class="tagline">Crafted with care, baked with love.</p>
+  </header>
+
+  <section class="menu">
+    <h2>Our Signature Cakes</h2>
+    <div class="categories">
+      <div class="category">
+        <h3>Chocolate Truffle</h3>
+        <p>Rich, moist chocolate cake layered with velvety ganache.</p>
+        <p class="price">₹700 (1kg)</p>
+      </div>
+      <div class="category">
+        <h3>Red Velvet Delight</h3>
+        <p>Classic red velvet cake with cream cheese frosting.</p>
+        <p class="price">₹750 (1kg)</p>
+      </div>
+      <div class="category">
+        <h3>Fruit Fiesta</h3>
+        <p>Vanilla sponge topped with seasonal fresh fruits and whipped cream.</p>
+        <p class="price">₹800 (1kg)</p>
+      </div>
+      <div class="category">
+        <h3>Butterscotch Bliss</h3>
+        <p>Caramel-flavored cake with crunchy praline layers.</p>
+        <p class="price">₹720 (1kg)</p>
+      </div>
+      <div class="category">
+        <h3>Black Forest Charm</h3>
+        <p>German classic with cherries, whipped cream, and chocolate shavings.</p>
+        <p class="price">₹680 (1kg)</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="gallery">
+    <h2>Gallery</h2>
+    <div class="images">
+      <img src="cake1.jpg" alt="Cake 1"/>
+      <img src="cake2.jpg" alt="Cake 2"/>
+      <img src="cake3.jpg" alt="Cake 3"/>
+    </div>
+  </section>
+
+  <section class="contact">
+    <h2>Place an Order</h2>
+    <p>Email: your-email@example.com</p>
+    <p>WhatsApp: +91-XXXXXXXXXX</p>
+    <p>(You can edit this info later.)</p>
+  </section>
+
+  <footer>
+    <p>Website by Subom | Brand: Baish's Cake</p>
+  </footer>
+</body>
+</html>
+"""
+
+# Update the CSS to reflect the professional, cute, and modern styling
+style_css_baish = """
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #fff8f0;
+  color: #4a2c2a;
+}
+
+header {
+  background: #fbd1dc;
+  text-align: center;
+  padding: 3em 1em;
+  border-bottom: 5px solid #d4af7f;
+}
+
+h1 {
+  font-family: 'Cookie', cursive;
+  font-size: 3em;
+  color: #d4af7f;
+}
+
+.tagline {
+  font-size: 1.2em;
+  font-style: italic;
+  margin-top: 0.5em;
+}
+
+.menu {
+  padding: 3em 1em;
+  background: #fff3e6;
+}
+
+.menu h2 {
+  text-align: center;
+  font-size: 2em;
+  margin-bottom: 1em;
+  color: #4a2c2a;
+}
+
+.categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5em;
+  justify-content: center;
+}
+
+.category {
+  background: #ffffff;
+  padding: 1.5em;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  width: 280px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.category:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.category h3 {
+  font-size: 1.5em;
+  color: #4a2c2a;
+}
+
+.category p {
+  font-size: 1em;
+  color: #7a5c4f;
+}
+
+.price {
+  font-weight: bold;
+  color: #d4af7f;
+  margin-top: 0.5em;
+}
+
+.gallery {
+  padding: 3em 1em;
+  text-align: center;
+}
+
+.images {
+  display: flex;
+  justify-content: center;
+  gap: 2em;
+  flex-wrap: wrap;
+  margin-top: 2em;
+}
+
+.images img {
+  width: 250px;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 0 15px #ddd;
+  transition: transform 0.3s ease;
+}
+
+.images img:hover {
+  transform: scale(1.05);
+}
+
+.contact {
+  background: #fde4e1;
+  padding: 3em 1em;
+  text-align: center;
+}
+
+footer {
+  background: #4a2c2a;
+  color: white;
+  text-align: center;
+  padding: 1.5em;
+}
+
+footer p {
+  font-size: 1.2em;
+}
+"""
+
+# Save updated files
+updated_base_dir = "/mnt/data/baishs-cake"
+os.makedirs(updated_base_dir, exist_ok=True)
+
+with open(os.path.join(updated_base_dir, "index.html"), "w") as f:
+    f.write(index_html_baish)
+
+with open(os.path.join(updated_base_dir, "style.css"), "w") as f:
+    f.write(style_css_baish)
+
+# Re-zip the updated project for download
+zip_path_baish = "/mnt/data/baishs-cake.zip"
+with zipfile.ZipFile(zip_path_baish, 'w') as zipf:
+    for foldername, _, filenames in os.walk(updated_base_dir):
+        for filename in filenames:
+            file_path = os.path.join(foldername, filename)
+            zipf.write(file_path, os.path.relpath(file_path, updated_base_dir))
+
+zip_path_baish
